@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="net.phptravels.admin.LoginAsAdminOnChrome">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="beforeClass"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- net.phptravels.admin.LoginAsAdminOnChrome -->
+      <class name="net.phptravels.admin.LoginAsAdminOnFirefox">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- net.phptravels.admin.LoginAsAdminOnFirefox -->
+      <class name="net.phptravels.admin.LoginAsAdminOnIE">
+        <methods>
+          <include name="isLoginInWithCorrectAdminEmailAndPassword"/>
+          <include name="beforeClass"/>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- net.phptravels.admin.LoginAsAdminOnIE -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
