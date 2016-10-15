@@ -1,13 +1,13 @@
 package net.phptravels.admin;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.ImagePath;
+import org.sikuli.script.Screen;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -27,11 +27,12 @@ public class LoginAsAdminOnIE {
 		// Maximize the browser window
 		driver.manage().window().maximize();
 
-		// Set the implicit wait time out to 5 seconds
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
 		// Navigate to http://phptravels.net/admin
 		driver.get("http://phptravels.net/admin");
+		
+		// Waits for tag b
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.tagName("b"))));
 	}
 
 	@AfterMethod
@@ -47,6 +48,9 @@ public class LoginAsAdminOnIE {
 		// Set IE driver property
 		System.setProperty("webdriver.ie.driver", 
 				"./src/test/resources/drivers/IEDriverServer.exe");
+		
+		// Path to sikuli images
+		ImagePath.add("src/test/resources/images.sikuli");
 	}
 	
 	@Test
@@ -55,7 +59,7 @@ public class LoginAsAdminOnIE {
 		// Find Email text field
 		WebElement emailTF = driver.findElement(By.name("email"));
 		
-		//  Clear text value
+		//  Clear text field
 		emailTF.clear();
 		
 		// Enter Email
@@ -83,6 +87,138 @@ public class LoginAsAdminOnIE {
 		// Verify page title
 		Assert.assertEquals(driver.getTitle(), "Dashboard");
 		
+	}
+	
+	@Test
+	public void isNotLoginInWithIncorrectAdminEmail() throws Exception {
+		
+		// Find Email text field
+		WebElement emailTF = driver.findElement(By.name("email"));
+		
+		//  Clear text field
+		emailTF.clear();
+		
+		// Enter Email
+		emailTF.sendKeys("admin@phptravel.com");
+		
+		// Find Password text field
+		WebElement passwordTF = driver.findElement(By.name("password"));
+		
+		//  Clear text field
+		passwordTF.clear();
+		
+		// Enter Password
+		passwordTF.sendKeys("demoadmin");
+		
+		// Find Login button
+		WebElement loginB = driver.findElement(By.xpath("//button[@type='submit']"));
+			 
+		// Click Login button
+		loginB.click();
+		
+		// Waits for div visibility
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		Boolean divB = wait.until(ExpectedConditions.textToBe(By.xpath("//div[@class='resultlogin']/div"), "Invalid Login Credentials"));
+		
+		// Verify divB
+		Assert.assertTrue(divB);
+				
+	}
+	
+	@Test
+	public void isNotLoginInWithIncorrectAdminPassword() throws Exception {
+		
+		// Find Email text field
+		WebElement emailTF = driver.findElement(By.name("email"));
+		
+		//  Clear text value
+		emailTF.clear();
+		
+		// Enter Email
+		emailTF.sendKeys("admin@phptravels.com");
+		
+		// Find Password text field
+		WebElement passwordTF = driver.findElement(By.name("password"));
+		
+		//  Clear text field
+		passwordTF.clear();
+		
+		// Enter Password
+		passwordTF.sendKeys("demoadmi");
+		
+		// Find Login button
+		WebElement loginB = driver.findElement(By.xpath("//button[@type='submit']"));
+			 
+		// Click Login button
+		loginB.click();
+		
+		// Waits for div visibility
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		Boolean divB = wait.until(ExpectedConditions.textToBe(By.xpath("//div[@class='resultlogin']/div"), "Invalid Login Credentials"));
+		
+		// Verify divB
+		Assert.assertTrue(divB);
+				
+	}
+	
+	@Test
+	public void isNotLoginInWithoutAdminEmail() throws Exception {
+		
+		// Find Password text field
+		WebElement passwordTF = driver.findElement(By.name("password"));
+		
+		//  Clear text field
+		passwordTF.clear();
+		
+		// Enter Password
+		passwordTF.sendKeys("demoadmin");
+		
+		// Find Login button
+		WebElement loginB = driver.findElement(By.xpath("//button[@type='submit']"));
+			 
+		// Click Login button
+		loginB.click();
+		
+		// Create a new screen object 
+		Screen screen = new Screen();
+				
+		// Verify if tooltip message is appeared
+		if(screen.exists("tooltipIE.png", 5) != null){
+			Assert.assertTrue(true);			
+		}else{			
+			Assert.assertFalse(true);			
+		}
+						
+	}
+	
+	@Test
+	public void isNotLoginInWithoutAdminPassword() throws Exception {
+
+		// Find Email text field
+		WebElement emailTF = driver.findElement(By.name("email"));
+
+		// Clear text value
+		emailTF.clear();
+
+		// Enter Email
+		emailTF.sendKeys("admin@phptravels.com");
+
+		// Find Login button
+		WebElement loginB = driver.findElement(By.xpath("//button[@type='submit']"));
+
+		// Click Login button
+		loginB.click();
+
+		// Create a new screen object
+		Screen screen = new Screen();
+
+		// Verify if tooltip message is appeared
+		if (screen.exists("tooltipIE.png", 5) != null) {
+			Assert.assertTrue(true);
+		} else {
+			Assert.assertFalse(true);
+		}
+
 	}
 
 }

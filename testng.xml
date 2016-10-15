@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="false">
-  <test name="Test">
-    <classes>
-      <class name="net.phptravels.admin.LoginAsAdminOnFirefox"/>
-      <class name="net.phptravels.admin.LoginAsAdminOnIE"/>
-      <class name="net.phptravels.admin.LoginAsAdminOnChrome"/>
-    </classes>
-  </test> <!-- Test -->
+	<test name="Test">
+		<classes>
+			<class name="net.phptravels.admin.LoginAsAdminOnChrome" />
+			<class name="net.phptravels.admin.LoginAsAdminOnFirefox" />
+			<class name="net.phptravels.admin.LoginAsAdminOnIE" />
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->

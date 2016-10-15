@@ -1,65 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="59679" started-at="2016-10-13T18:37:48Z" finished-at="2016-10-13T18:38:47Z">
+  <suite name="Default suite" duration-ms="15585" started-at="2016-10-15T16:04:21Z" finished-at="2016-10-15T16:04:37Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="59679" started-at="2016-10-13T18:37:48Z" finished-at="2016-10-13T18:38:47Z">
-      <class name="net.phptravels.admin.LoginAsAdminOnChrome">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnChrome@d2cc05a]" name="beforeMethod" is-config="true" duration-ms="8019" started-at="2016-10-13T20:38:30Z" finished-at="2016-10-13T20:38:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnChrome@d2cc05a]" name="beforeClass" is-config="true" duration-ms="0" started-at="2016-10-13T20:38:30Z" finished-at="2016-10-13T20:38:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="isLoginInWithCorrectAdminEmailAndPassword()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnChrome@d2cc05a]" name="isLoginInWithCorrectAdminEmailAndPassword" duration-ms="7656" started-at="2016-10-13T20:38:38Z" finished-at="2016-10-13T20:38:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- isLoginInWithCorrectAdminEmailAndPassword -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnChrome@d2cc05a]" name="afterMethod" is-config="true" duration-ms="1316" started-at="2016-10-13T20:38:46Z" finished-at="2016-10-13T20:38:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- net.phptravels.admin.LoginAsAdminOnChrome -->
-      <class name="net.phptravels.admin.LoginAsAdminOnFirefox">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnFirefox@7823a2f9]" name="beforeClass" is-config="true" duration-ms="326" started-at="2016-10-13T20:37:48Z" finished-at="2016-10-13T20:37:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnFirefox@7823a2f9]" name="beforeMethod" is-config="true" duration-ms="15074" started-at="2016-10-13T20:37:48Z" finished-at="2016-10-13T20:38:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="isLoginInWithCorrectAdminEmailAndPassword()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnFirefox@7823a2f9]" name="isLoginInWithCorrectAdminEmailAndPassword" duration-ms="7427" started-at="2016-10-13T20:38:03Z" finished-at="2016-10-13T20:38:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- isLoginInWithCorrectAdminEmailAndPassword -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnFirefox@7823a2f9]" name="afterMethod" is-config="true" duration-ms="2896" started-at="2016-10-13T20:38:11Z" finished-at="2016-10-13T20:38:14Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- net.phptravels.admin.LoginAsAdminOnFirefox -->
+    <test name="Default test" duration-ms="15585" started-at="2016-10-15T16:04:21Z" finished-at="2016-10-15T16:04:37Z">
       <class name="net.phptravels.admin.LoginAsAdminOnIE">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnIE@4cc0edeb]" name="beforeClass" is-config="true" duration-ms="1" started-at="2016-10-13T20:38:14Z" finished-at="2016-10-13T20:38:14Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnIE@457e2f02]" name="beforeClass" is-config="true" duration-ms="530" started-at="2016-10-15T18:04:21Z" finished-at="2016-10-15T18:04:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnIE@4cc0edeb]" name="beforeMethod" is-config="true" duration-ms="4690" started-at="2016-10-13T20:38:14Z" finished-at="2016-10-13T20:38:18Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnIE@457e2f02]" name="beforeMethod" is-config="true" duration-ms="7566" started-at="2016-10-15T18:04:21Z" finished-at="2016-10-15T18:04:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="isLoginInWithCorrectAdminEmailAndPassword()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnIE@4cc0edeb]" name="isLoginInWithCorrectAdminEmailAndPassword" duration-ms="10453" started-at="2016-10-13T20:38:18Z" finished-at="2016-10-13T20:38:29Z">
+        <test-method status="PASS" signature="isNotLoginInWithIncorrectAdminEmail()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnIE@457e2f02]" name="isNotLoginInWithIncorrectAdminEmail" duration-ms="5008" started-at="2016-10-15T18:04:29Z" finished-at="2016-10-15T18:04:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- isLoginInWithCorrectAdminEmailAndPassword -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnIE@4cc0edeb]" name="afterMethod" is-config="true" duration-ms="1786" started-at="2016-10-13T20:38:29Z" finished-at="2016-10-13T20:38:30Z">
+        </test-method> <!-- isNotLoginInWithIncorrectAdminEmail -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:net.phptravels.admin.LoginAsAdminOnIE@457e2f02]" name="afterMethod" is-config="true" duration-ms="2465" started-at="2016-10-15T18:04:34Z" finished-at="2016-10-15T18:04:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
       </class> <!-- net.phptravels.admin.LoginAsAdminOnIE -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
