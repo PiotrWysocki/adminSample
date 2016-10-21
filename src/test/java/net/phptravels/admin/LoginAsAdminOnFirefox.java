@@ -1,8 +1,10 @@
 package net.phptravels.admin;
 
 import java.io.File;
+import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxBinary;
@@ -23,7 +25,7 @@ public class LoginAsAdminOnFirefox {
 	private WebDriver driver;
 	private FirefoxBinary binary;
 	private FirefoxProfile profile;
-
+	
 	@BeforeMethod
 	public void beforeMethod() throws Exception {
 
@@ -56,7 +58,7 @@ public class LoginAsAdminOnFirefox {
 
 		// Create a new Firefox profile
 		profile = new FirefoxProfile();
-
+						
 		// Path to sikuli images
 		ImagePath.add("src/test/resources/images.sikuli");
 	}
@@ -227,6 +229,75 @@ public class LoginAsAdminOnFirefox {
 			Assert.assertFalse(true);
 		}
 
+	}
+	
+	@Test
+	public void isFunctionRememberMeWork() throws Exception {
+		
+		// Find Email text field
+		WebElement emailTF = driver.findElement(By.name("email"));
+		
+		//  Clear text value
+		emailTF.clear();
+		
+		// Enter Email
+		emailTF.sendKeys("admin@phptravels.com");
+		
+		// Find Password text field
+		WebElement passwordTF = driver.findElement(By.name("password"));
+		
+		//  Clear text field
+		passwordTF.clear();
+		
+		// Enter Password
+		passwordTF.sendKeys("demoadmin");
+		
+		// Find checkbox "Remember Me"
+		WebElement rememberMeCB = driver.findElement(By.xpath("//ins[@class='iCheck-helper']"));
+		
+		// Click checkbox
+		rememberMeCB.click();
+		
+		// Find Login button
+		WebElement loginB = driver.findElement(By.xpath("//button[@type='submit']"));
+			 
+		// Click Login button
+		loginB.click();
+		
+		Set<Cookie> cookies =  driver.manage().getCookies();
+		
+		// Waits for the page to load
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.titleIs("Dashboard"));
+		
+		// Close browser
+		driver.close();
+		
+		// Launch browser
+		driver = new FirefoxDriver(binary, profile);
+
+		// Maximize the browser window
+		driver.manage().window().maximize();
+		
+		// Navigate to http://phptravels.net/admin
+		driver.get("http://phptravels.net/admin");
+		
+		for(Cookie getCookie:cookies){
+		    if(getCookie.getDomain().equals("phptravels.net")){
+		        driver.manage().addCookie(getCookie);
+		    }
+		}
+		
+		// Navigate to http://phptravels.net/admin
+		driver.get("http://phptravels.net/admin");
+			
+		// Waits for the page to load
+		WebDriverWait waitTwo = new WebDriverWait(driver, 15);
+		waitTwo.until(ExpectedConditions.titleIs("Dashboard"));
+		
+		// Verify page title
+		Assert.assertEquals(driver.getTitle(), "Dashboard");		
+		
 	}
 
 }

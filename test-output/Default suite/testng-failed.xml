@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="net.phptravels.admin.LoginAsAdminOnFirefox">
+      <class name="net.phptravels.admin.LoginAsAdminOnChrome">
         <methods>
-          <include name="beforeClass"/>
           <include name="beforeMethod"/>
-          <include name="isNotLoginInWithIncorrectAdminEmail"/>
+          <include name="isFunctionRememberMeWork"/>
+          <include name="beforeClass"/>
           <include name="afterMethod"/>
         </methods>
-      </class> <!-- net.phptravels.admin.LoginAsAdminOnFirefox -->
+      </class> <!-- net.phptravels.admin.LoginAsAdminOnChrome -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
