@@ -257,6 +257,7 @@ public class LoginAsAdminOnIE {
 		// Click Login button
 		loginB.click();
 		
+		// Get all cookies
 		Set<Cookie> cookies =  driver.manage().getCookies();
 		
 		// Waits for the page to load
@@ -264,7 +265,7 @@ public class LoginAsAdminOnIE {
 		wait.until(ExpectedConditions.titleIs("Dashboard"));
 		
 		// Close browser
-		driver.close();
+		driver.quit();
 		
 		// Launch IE browser
 		driver = new InternetExplorerDriver();
@@ -275,6 +276,7 @@ public class LoginAsAdminOnIE {
 		// Navigate to http://phptravels.net/admin
 		driver.get("http://phptravels.net/admin");
 		
+		// Add cookie
 		for(Cookie getCookie:cookies){
 		    if(getCookie.getDomain().equals("phptravels.net")){
 		        driver.manage().addCookie(getCookie);
@@ -289,7 +291,8 @@ public class LoginAsAdminOnIE {
 		waitTwo.until(ExpectedConditions.titleIs("Dashboard"));
 		
 		// Verify page title
-		Assert.assertEquals(driver.getTitle(), "Dashboard");		
+		Assert.assertEquals(driver.getTitle(), "Dashboard");
+		
 		
 	}
 

@@ -58,7 +58,7 @@ public class LoginAsAdminOnFirefox {
 
 		// Create a new Firefox profile
 		profile = new FirefoxProfile();
-						
+	
 		// Path to sikuli images
 		ImagePath.add("src/test/resources/images.sikuli");
 	}
@@ -264,6 +264,7 @@ public class LoginAsAdminOnFirefox {
 		// Click Login button
 		loginB.click();
 		
+		// Get all cookies
 		Set<Cookie> cookies =  driver.manage().getCookies();
 		
 		// Waits for the page to load
@@ -271,17 +272,19 @@ public class LoginAsAdminOnFirefox {
 		wait.until(ExpectedConditions.titleIs("Dashboard"));
 		
 		// Close browser
-		driver.close();
+		driver.quit();
 		
 		// Launch browser
 		driver = new FirefoxDriver(binary, profile);
 
+		
 		// Maximize the browser window
 		driver.manage().window().maximize();
 		
 		// Navigate to http://phptravels.net/admin
 		driver.get("http://phptravels.net/admin");
 		
+		// Add cookie
 		for(Cookie getCookie:cookies){
 		    if(getCookie.getDomain().equals("phptravels.net")){
 		        driver.manage().addCookie(getCookie);
